@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentation Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container my-4">
+        <div class="my-4">
+            <h1 class="text-center">ImpactFuse Scrum</h1>
+            <h4 id="currentDate" class="text-center">
+            </h4>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <!-- Global Timer Input -->
+                <div class="input-group mb-3">
+                    <input type="text" id="globalTimer" class="form-control" placeholder="Enter time (MM:SS)"
+                        value="05:00">
+                    <button id="startMeeting" class="btn btn-success">Start Scrum</button>
+                    <button id="saveReport" class="btn btn-danger ms-2">Download Report</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-12">
+                <!-- Participants Timers -->
+                <div id="participants" class="mt-4"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.21/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
