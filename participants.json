@@ -1,6 +1,17 @@
 [
-    {"id": "1", "dept":"IT", "name": "Enamul Kabir"},
-    {"id": "2", "dept":"IT", "name": "Scion"},
-    {"id": "3", "dept":"IT", "name": "Murad Husain"},
-    {"id": "4", "dept":"IT", "name": "Chief"}
+    {"id": "1", "dept": "Media Operation", "name": "Shihab"},
+    {"id": "2", "dept": "Operations", "name": "Anima"},
+    {"id": "3", "dept": "Graphics", "name": "Shahed"},
+    {"id": "4", "dept": "Project Management", "name": "Rofiquzzaman Prottoy"},
+    {"id": "5", "dept": "HR", "name": "Fatiha"},
+    {"id": "6", "dept": "Graphics", "name": "Shah Alif"},
+    {"id": "7", "dept": "Operations", "name": "Juhaiba"},
+    {"id": "8", "dept": "Project Management", "name": "Suha"},
+    {"id": "9", "dept": "Operations", "name": "Mir Faeza Zannat"},
+    {"id": "10", "dept": "Operations", "name": "Hafsa"},
+    {"id": "11", "dept": "Operations", "name": "Aafifa"},
+    {"id": "12", "dept": "Graphics", "name": "Mohsina"},
+    {"id": "13", "dept": "Content", "name": "Ayman"},
+    {"id": "14", "dept": "Technology", "name": "Rifat"},
+    {"id": "15", "dept": "Executive", "name": "Tanjim"}
 ]
