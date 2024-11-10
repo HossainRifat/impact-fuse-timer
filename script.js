@@ -120,6 +120,7 @@ function startIndividualTimer(index) {
 
     intervalIds[index] = setInterval(() => {
         if (totalSeconds <= 0) {
+            beep();
             clearInterval(intervalIds[index]);
             $(`#timer-${index}`).text("00:00");
             return;
@@ -195,5 +196,32 @@ function downloadReport() {
 
     // Save the PDF with the formatted filename
     doc.save(`scrum-report-${dateStr}.pdf`);
+}
+
+function beep(duration = 200, frequency = 440, volume = 0.5) {
+    // Create audio context
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Create oscillator node for the sound
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = 'sine'; // 'sine' wave is a smooth beep, you can change to 'square', 'triangle', or 'sawtooth'
+    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // Frequency in Hz
+    
+    // Create gain node for volume control
+    const gainNode = audioContext.createGain();
+    gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+
+    // Connect oscillator to gain node, then to audio context
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    // Start the beep
+    oscillator.start();
+    
+    // Stop the beep after the specified duration
+    setTimeout(() => {
+        oscillator.stop();
+        audioContext.close();
+    }, duration);
 }
 
