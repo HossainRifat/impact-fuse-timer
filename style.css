@@ -7,13 +7,6 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.timer-controls {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    gap: 4px;
-}
-
 
 body {
     background-color: #333;

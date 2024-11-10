@@ -38,7 +38,7 @@ $(document).ready(function () {
                                     <p>${participant.dept}</p>
                                     <span id="timer-${participant.id}">${globalTime}</span>
                                 </div>
-                                <div class="timer-controls">
+                                <div class="timer-controls" style="display: flex; justify-content: center; align-items: end; gap: 4px;}">
                                     <button onclick="startIndividualTimer(${participant.id})" class="btn btn-sm btn-success">Start</button>
                                     <button onclick="clearInterval(intervalIds[${participant.id}])" class="btn btn-sm btn-danger">Stop</button>
                                     <button onclick="resetTimer(${participant.id})" class="btn btn-sm btn-warning">Reset</button>
