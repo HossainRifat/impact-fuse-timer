@@ -7,7 +7,6 @@ let intervalIds = {};
 
 
 $(document).ready(function () {
-
     // Display current date Firday, 23rd Jan 2022
     $('#currentDate').text(new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
 
@@ -198,15 +197,15 @@ function downloadReport() {
     doc.save(`scrum-report-${dateStr}.pdf`);
 }
 
-function beep(duration = 200, frequency = 440, volume = 0.5) {
-    // Create audio context
+function beep(duration = 400, frequency = 440, volume = 1.5) {
+    // Create audio context on user gesture
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    
+
     // Create oscillator node for the sound
     const oscillator = audioContext.createOscillator();
-    oscillator.type = 'sine'; // 'sine' wave is a smooth beep, you can change to 'square', 'triangle', or 'sawtooth'
-    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // Frequency in Hz
-    
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
     // Create gain node for volume control
     const gainNode = audioContext.createGain();
     gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
@@ -217,11 +216,12 @@ function beep(duration = 200, frequency = 440, volume = 0.5) {
 
     // Start the beep
     oscillator.start();
-    
+
     // Stop the beep after the specified duration
     setTimeout(() => {
         oscillator.stop();
         audioContext.close();
     }, duration);
 }
+
 
