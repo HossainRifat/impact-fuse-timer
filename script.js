@@ -7,7 +7,6 @@ let intervalIds = {};
 
 
 $(document).ready(function () {
-
     // Display current date Firday, 23rd Jan 2022
     $('#currentDate').text(new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
 
@@ -38,7 +37,7 @@ $(document).ready(function () {
                                     <p>${participant.dept}</p>
                                     <span id="timer-${participant.id}">${globalTime}</span>
                                 </div>
-                                <div class="timer-controls">
+                                <div class="timer-controls" style="display: flex; justify-content: center; align-items: end; gap: 4px;}">
                                     <button onclick="startIndividualTimer(${participant.id})" class="btn btn-sm btn-success">Start</button>
                                     <button onclick="clearInterval(intervalIds[${participant.id}])" class="btn btn-sm btn-danger">Stop</button>
                                     <button onclick="resetTimer(${participant.id})" class="btn btn-sm btn-warning">Reset</button>
@@ -120,6 +119,7 @@ function startIndividualTimer(index) {
 
     intervalIds[index] = setInterval(() => {
         if (totalSeconds <= 0) {
+            beep();
             clearInterval(intervalIds[index]);
             $(`#timer-${index}`).text("00:00");
             return;
@@ -196,4 +196,32 @@ function downloadReport() {
     // Save the PDF with the formatted filename
     doc.save(`scrum-report-${dateStr}.pdf`);
 }
+
+function beep(duration = 400, frequency = 440, volume = 1.5) {
+    // Create audio context on user gesture
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Create oscillator node for the sound
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
+    // Create gain node for volume control
+    const gainNode = audioContext.createGain();
+    gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+
+    // Connect oscillator to gain node, then to audio context
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    // Start the beep
+    oscillator.start();
+
+    // Stop the beep after the specified duration
+    setTimeout(() => {
+        oscillator.stop();
+        audioContext.close();
+    }, duration);
+}
+
 
