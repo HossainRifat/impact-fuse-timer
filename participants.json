@@ -15,9 +15,7 @@
     {"id": "14", "dept": "Technology", "name": "Rifat"},
     {"id": "15", "dept": "Executive", "name": "Tanjim"},
     {"id": "16", "dept": "HR", "name": "Farah Tanzim"},
-    
     {"id": "18", "dept": "Marketing", "name": "Zidanur"},
-
     {"id": "20", "dept": "Marketing", "name": "Tabeed Hasan"},
     {"id": "21", "dept": "HR", "name": "Huraira Islam"}
 ]
