@@ -18,5 +18,7 @@
     {"id": "18", "dept": "Marketing", "name": "Zidanur"},
     {"id": "20", "dept": "Marketing", "name": "Tabeed Hasan"},
     {"id": "21", "dept": "HR", "name": "Huraira Islam"},
-    {"id": "22", "dept": "Design", "name": "Arabee"}
+    {"id": "22", "dept": "Design", "name": "Arabee"},
+    {"id": "23", "dept": "Content", "name": "Nuria"},
+    {"id": "24", "dept": "Content", "name": "Sharmin"}
 ]
